@@ -1,0 +1,11 @@
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.7",
+    "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-cosmosdb",
+        "ms-vscode.azurecli"
+    ],
+    "features": {
+        "azure-cli": "latest"
+    }
+}
