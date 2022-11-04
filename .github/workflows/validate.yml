@@ -16,10 +16,10 @@ jobs:
       run:
         working-directory: ${{ matrix.project-directory }}
     steps:
-      - name: Check Python version
-        run: python --version
       - name: Checkout source code
         uses: actions/checkout@v2
+      - name: Check Python version
+        run: python --version
       - name: Install packages
         run: pip install black flake8
       - name: Lint with flake8
