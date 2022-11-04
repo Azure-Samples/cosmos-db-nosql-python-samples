@@ -1,0 +1,28 @@
+name: Validate Python projects
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  validate:
+    name: Validate Python project
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/vscode/devcontainers/python:3.7
+    strategy:
+      matrix:
+        project-directory:
+          - ./001-quickstart
+    defaults:
+      run:
+        working-directory: ${{ matrix.project-directory }}
+    steps:
+      - name: Check Python version
+        run: python --version
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Install packages
+        run: pip install black flake8
+      - name: Lint with flake8
+        run: flake8 --count --verbose app.py
+      - name: Check format with black
+        run: black --check --verbose app.py
