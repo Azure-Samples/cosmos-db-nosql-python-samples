@@ -15,7 +15,7 @@ client = CosmosClient(url=endpoint, credential=key)
 # </create_client>
 
 # <create_database>
-database = client.create_database_if_not_exists(id="adventureworks")
+database = client.create_database_if_not_exists(id="cosmicworks")
 # </create_database>
 
 # <create_partition_key>
