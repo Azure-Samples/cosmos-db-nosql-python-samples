@@ -18,9 +18,11 @@ client = CosmosClient(url=endpoint, credential=key)
 database = client.create_database_if_not_exists(id="adventureworks")
 # </create_database>
 
-# <create_container>
+# <create_partition_key>
 partitionKeyPath = PartitionKey(path="/categoryId")
+# </create_partition_key>
 
+# <create_container>
 container = database.create_container_if_not_exists(
     id="products", partition_key=partitionKeyPath, offer_throughput=400
 )
