@@ -29,7 +29,8 @@ def main():
         # Create a container.
         partition_key_path = PartitionKey(path="/categoryId")
         container = database.create_container_if_not_exists(
-            id=CONTAINER_ID, partition_key=partition_key_path, offer_throughput=400
+            id=CONTAINER_ID, partition_key=partition_key_path,
+            offer_throughput=400
         )
 
         # Create a new item.
@@ -50,7 +51,8 @@ def main():
         params = [dict(name="@categoryId", value=category_id)]
 
         items = container.query_items(
-            query=sql_stmt, parameters=params, enable_cross_partition_query=False
+            query=sql_stmt, parameters=params,
+            enable_cross_partition_query=False
         )
 
         for item in items:
