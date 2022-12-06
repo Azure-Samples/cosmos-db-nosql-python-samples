@@ -13,6 +13,9 @@ jobs:
         project-directory:
           - ./001-quickstart
           - ./002-quickstart-async
+          - ./003-how-to
+          - ./004-create-db
+          - ./005-create-container
     defaults:
       run:
         working-directory: ${{ matrix.project-directory }}
