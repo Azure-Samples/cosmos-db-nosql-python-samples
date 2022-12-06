@@ -2,7 +2,8 @@
 import os
 
 from azure.cosmos import CosmosClient, PartitionKey
-from azure.cosmos.exceptions import CosmosHttpResponseError, CosmosResourceExistsError
+from azure.cosmos.exceptions import (CosmosHttpResponseError,
+                                     CosmosResourceExistsError)
 
 DATABASE_ID = "cosmicworks-1"
 CONTAINER_ID = "products"
@@ -21,7 +22,8 @@ def main():
         try:
             partition_key_path = PartitionKey(path="/categoryId")
             container = database.create_container(
-                id=CONTAINER_ID, partition_key=partition_key_path, offer_throughput=400
+                id=CONTAINER_ID, partition_key=partition_key_path,
+                offer_throughput=400
             )
             print(f"Container created: {container.id}")
 
