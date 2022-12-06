@@ -6,6 +6,7 @@ import uuid
 
 from azure.core.exceptions import AzureError
 from azure.cosmos import CosmosClient
+
 # <credential>
 from azure.identity import ClientSecretCredential
 
@@ -15,9 +16,7 @@ CLIENT_ID = os.environ["CLIENT_ID"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
 
 credential = ClientSecretCredential(
-    tenant_id=TENANT_ID,
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET
+    tenant_id=TENANT_ID, client_id=CLIENT_ID, client_secret=CLIENT_SECRET
 )
 
 client = CosmosClient(ENDPOINT, credential)
@@ -55,8 +54,7 @@ def main():
         params = [dict(name="@categoryId", value=category_id)]
 
         items = container.query_items(
-            query=sql_stmt, parameters=params,
-            enable_cross_partition_query=False
+            query=sql_stmt, parameters=params, enable_cross_partition_query=False
         )
 
         for item in items:

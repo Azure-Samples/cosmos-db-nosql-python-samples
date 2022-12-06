@@ -13,6 +13,7 @@ jobs:
         project-directory:
           - ./001-quickstart
           - ./002-quickstart-async
+          - ./003-how-to
     defaults:
       run:
         working-directory: ${{ matrix.project-directory }}
