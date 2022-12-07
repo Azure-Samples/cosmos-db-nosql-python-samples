@@ -70,5 +70,8 @@ This project contains multiple samples used in [Azure Cosmos DB for NoSQL](https
 
 | Sample | Documentation |
 | --- | --- |
-| [001-quickstart](001-quickstart/app.py) | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Clinux%2Csync) |
-| [002-quickstart-async](002-quickstart-async/app.py) | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Clinux%2Casync) |
+| [001-quickstart](001-quickstart/app.py) | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](https://learn.microsoft.com/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Clinux%2Csync) |
+| [002-quickstart-async](002-quickstart-async/app.py) | [Quickstart: Azure Cosmos DB for NoSQL client library for Python](https://learn.microsoft.com/azure/cosmos-db/nosql/quickstart-python?tabs=azure-portal%2Clinux%2Casync) |
+| [[003-how-to](003-how-to/app.py)] | [Get started with Azure Cosmos DB for NoSQL using Python](https://learn.microsoft.com/azure/cosmos-db/nosql/how-to-python-get-started) |
+| [[004-create-db](003-how-to/app.py)] | [Create a database in Azure Cosmos DB for NoSQL using Python](https://learn.microsoft.com/azure/cosmos-db/nosql/how-to-python-create-database) |
+| [[005-create-container](003-how-to/app.py)] | [Create a container in Azure Cosmos DB for NoSQL using Python](https://learn.microsoft.com/azure/cosmos-db/nosql/how-to-python-create-container) |
