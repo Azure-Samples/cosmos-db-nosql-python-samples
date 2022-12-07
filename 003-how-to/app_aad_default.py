@@ -49,7 +49,9 @@ def main():
         params = [dict(name="@categoryId", value=category_id)]
 
         items = container.query_items(
-            query=sql_stmt, parameters=params, enable_cross_partition_query=False
+            query=sql_stmt,
+            parameters=params,
+            enable_cross_partition_query=False,
         )
 
         for item in items:
