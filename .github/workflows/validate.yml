@@ -13,6 +13,9 @@ jobs:
         project-directory:
           - ./001-quickstart
           - ./002-quickstart-async
+          - ./003-how-to
+          - ./004-create-db
+          - ./005-create-container
     defaults:
       run:
         working-directory: ${{ matrix.project-directory }}
@@ -24,6 +27,6 @@ jobs:
       - name: Install packages
         run: pip install black flake8
       - name: Lint with flake8
-        run: flake8 --count --verbose app.py
+        run: flake8 --count --verbose *.py
       - name: Check format with black
-        run: black --check --verbose app.py
+        run: black --check --verbose --line-length 79 *.py
