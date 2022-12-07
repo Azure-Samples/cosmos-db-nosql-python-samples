@@ -27,6 +27,6 @@ jobs:
       - name: Install packages
         run: pip install black flake8
       - name: Lint with flake8
-        run: flake8 --count --verbose app.py
+        run: flake8 --count --verbose *.py
       - name: Check format with black
-        run: black --check --verbose --line-length 79 app.py
+        run: black --check --verbose --line-length 79 *.py
