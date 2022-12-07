@@ -21,7 +21,9 @@ def main():
         try:
             partition_key_path = PartitionKey(path="/categoryId")
             container = database.create_container_if_not_exists(
-                id=CONTAINER_ID, partition_key=partition_key_path, offer_throughput=400
+                id=CONTAINER_ID,
+                partition_key=partition_key_path,
+                offer_throughput=400,
             )
             print(f"Container created or returned: {container.id}")
 
@@ -33,7 +35,9 @@ def main():
             # <parse_response>
             partition_key_path = PartitionKey(path="/categoryId")
             container = database.create_container_if_not_exists(
-                id=CONTAINER_ID, partition_key=partition_key_path, offer_throughput=400
+                id=CONTAINER_ID,
+                partition_key=partition_key_path,
+                offer_throughput=400,
             )
             for doc in container.read_all_items(max_item_count=10):
                 print(f'Doc id: {doc["id"]}')
