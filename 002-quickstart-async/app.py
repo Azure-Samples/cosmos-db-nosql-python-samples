@@ -6,15 +6,21 @@ import asyncio
 from azure.cosmos import PartitionKey
 from azure.cosmos.aio import CosmosClient
 
+# </imports>
+
+# <environment_variables>
 ENDPOINT = os.environ["COSMOS_ENDPOINT"]
 KEY = os.environ["COSMOS_KEY"]
 DATABASE_NAME = 'cosmicworks'
 CONTAINER_NAME = 'products'
+# </environment_variables>
 
+# <async_code>
 async def manage_cosmos():
     async with CosmosClient(url=ENDPOINT, credential=KEY) as client:
         database = await client.create_database_if_not_exists(id=DATABASE_NAME)
         print("Database", database)
+        
         
         partition_key_path = PartitionKey(path="/categoryId")
         
@@ -52,5 +58,8 @@ async def manage_cosmos():
             )
         item_list = [item async for item in results]
         print("Item list", item_list)
+# </async_code>
 
+# (run_asyncode)
 asyncio.run(manage_cosmos())
+# (/run_asyncode)
