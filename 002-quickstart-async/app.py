@@ -41,16 +41,12 @@ async def manage_cosmos():
           "sale": False,
         }
         
-        await container.create_item(newItem)
+         created_item = await container.create_item(new_item)
         
         existing_item = await container.read_item(
             item="70b63682-b93a-4c77-aad2-65501347265f",
             partition_key="61dba35b-4f02-45c5-b648-c6badc0cbd79",
         )
-        print("Existing item", existing_item)
-        if not existing_item:
-          created_item = await container.create_item(new_item)
-          print("Created item", created_item)
 
         QUERY = "SELECT * FROM products p WHERE p.categoryId = @categoryId"
         CATEGORYID = "61dba35b-4f02-45c5-b648-c6badc0cbd79"
