@@ -1,5 +1,6 @@
 # <imports>
 import os
+import json
 import asyncio
 
 from azure.cosmos import PartitionKey
@@ -25,14 +26,14 @@ async def manage_cosmos():
     async with CosmosClient(url=ENDPOINT, credential=KEY) as client:
 
         database = await client.create_database_if_not_exists(id=DATABASE_NAME)
-        print("Database", database)
+        print("Database\t", database.id)
 
         key_path = PartitionKey(path="/categoryId")
 
         container = await database.create_container_if_not_exists(
             id=CONTAINER_NAME, partition_key=key_path, offer_throughput=400
         )
-        print("Container", container)
+        print("Container\t", container.id)
 
         new_item = {
             "id": "70b63682-b93a-4c77-aad2-65501347265f",
@@ -49,7 +50,7 @@ async def manage_cosmos():
             item="70b63682-b93a-4c77-aad2-65501347265f",
             partition_key="61dba35b-4f02-45c5-b648-c6badc0cbd79",
         )
-        print("Point read item", existing_item["name"])
+        print("Point read\t", existing_item["name"])
 
         QUERY = "SELECT * FROM products p WHERE p.categoryId = @categoryId"
         CATEGORYID = "61dba35b-4f02-45c5-b648-c6badc0cbd79"
@@ -58,8 +59,9 @@ async def manage_cosmos():
         results = container.query_items(
             query=QUERY, parameters=params, enable_cross_partition_query=None
         )
-        item_list = [item async for item in results]
-        print("Item list", item_list)
+        items = [item async for item in results]
+        output = json.dumps(items, indent=True)
+        print("Result list\t", output)
 
 
 # </async_code>
