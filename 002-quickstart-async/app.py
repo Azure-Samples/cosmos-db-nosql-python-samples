@@ -59,6 +59,6 @@ async def manage_cosmos():
         print("Item list", item_list)
 # </async_code>
 
-# (run_asyncode)
+# (run_async_function)
 asyncio.run(manage_cosmos())
-# (/run_asyncode)
+# (/run_async_function)
