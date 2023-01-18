@@ -11,9 +11,12 @@ from azure.cosmos.aio import CosmosClient
 # <environment_variables>
 ENDPOINT = os.environ["COSMOS_ENDPOINT"]
 KEY = os.environ["COSMOS_KEY"]
+# </environment_variables>
+
+# <constants>
 DATABASE_NAME = 'cosmicworks'
 CONTAINER_NAME = 'products'
-# </environment_variables>
+# </constants>
 
 # <async_code>
 async def manage_cosmos():
