@@ -1,6 +1,7 @@
 # <imports>
 import os
 import json
+
 from azure.cosmos import CosmosClient, PartitionKey
 
 # </imports>
