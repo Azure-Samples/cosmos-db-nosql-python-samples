@@ -22,8 +22,8 @@ client = CosmosClient(url=ENDPOINT, credential=KEY)
 
 # <create_database>
 database = client.create_database_if_not_exists(id=DATABASE_NAME)
-# </create_database>
 print("Database\t", database.id)
+# </create_database>
 
 # <create_partition_key>
 key_path = PartitionKey(path="/categoryId")
@@ -33,8 +33,8 @@ key_path = PartitionKey(path="/categoryId")
 container = database.create_container_if_not_exists(
     id=CONTAINER_NAME, partition_key=key_path, offer_throughput=400
 )
-# </create_container>
 print("Container\t", container.id)
+# </create_container>
 
 # <new_item>
 new_item = {
@@ -72,7 +72,7 @@ results = container.query_items(
 # </query_items>
 
 # <iterate_query_results>
-items = items = [item for item in results]
+items = [item for item in results]
 output = json.dumps(items, indent=True)
 print("Result list\t", output)
 # </iterate_query_results>
