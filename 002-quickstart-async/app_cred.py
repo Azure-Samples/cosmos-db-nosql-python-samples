@@ -19,6 +19,7 @@ CONTAINER_NAME = "products"
 
 # <async_code>
 
+
 async def manage_cosmos():
 
     async with DefaultAzureCredential() as credential:
@@ -53,7 +54,8 @@ async def manage_cosmos():
             params = [dict(name="@categoryId", value=CATEGORYID)]
 
             results = container.query_items(
-                query=QUERY, parameters=params, enable_cross_partition_query=False
+                query=QUERY, parameters=params,
+                enable_cross_partition_query=False
             )
             items = [item async for item in results]
             output = json.dumps(items, indent=True)
