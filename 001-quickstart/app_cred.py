@@ -8,21 +8,24 @@ from azure.identity import DefaultAzureCredential
 
 # <environment_variables_and_credential>
 endpoint = os.environ["COSMOS_ENDPOINT"]
-database_name = os.environ["COSMOS_DATABASE"]
-container_name = os.environ["COSMOS_CONTAINER"]
 credential = DefaultAzureCredential()
 # </environment_variables_and_credential>
+
+# <constants>
+DATABASE_NAME = "cosmicworks"
+CONTAINER_NAME = "products"
+# </constants>
 
 # <create_client>
 client = CosmosClient(url=endpoint, credential=credential)
 # </create_client>
 
 # <get_database>
-database = client.get_database_client(database_name)
+database = client.get_database_client(DATABASE_NAME)
 # </get_database>
 
 # <get_container>
-container = database.get_container_client(container_name)
+container = database.get_container_client(CONTAINER_NAME)
 # </get_container>
 
 # <new_item>

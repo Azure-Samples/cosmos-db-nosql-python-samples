@@ -8,20 +8,23 @@ from azure.cosmos import CosmosClient
 # <environment_variables>
 endpoint = os.environ["COSMOS_ENDPOINT"]
 key = os.environ["COSMOS_KEY"]
-database_name = os.environ["COSMOS_DATABASE"]
-container_name = os.environ["COSMOS_CONTAINER"]
 # </environment_variables>
+
+# <constants>
+DATABASE_NAME = "cosmicworks"
+CONTAINER_NAME = "products"
+# </constants>
 
 # <create_client>
 client = CosmosClient(url=endpoint, credential=key)
 # </create_client>
 
 # <get_database>
-database = client.get_database_client(database_name)
+database = client.get_database_client(DATABASE_NAME)
 # </get_database>
 
 # <get_container>
-container = database.get_container_client(container_name)
+container = database.get_container_client(CONTAINER_NAME)
 # </get_container>
 
 # <new_item>
