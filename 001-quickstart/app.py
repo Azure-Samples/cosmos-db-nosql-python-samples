@@ -8,6 +8,8 @@ from azure.cosmos import CosmosClient, PartitionKey
 # <environment_variables>
 endpoint = os.environ["COSMOS_ENDPOINT"]
 key = os.environ["COSMOS_KEY"]
+database_name = os.environ["COSMOS_DATABASE"]
+container_name = os.environ["COSMOS_CONTAINER"]
 # </environment_variables>
 
 # <create_client>
@@ -15,7 +17,7 @@ client = CosmosClient(url=endpoint, credential=key)
 # </create_client>
 
 # <create_database>
-database = client.create_database_if_not_exists(id="cosmicworks")
+database = client.create_database_if_not_exists(id=database_name)
 # </create_database>
 
 # <create_partition_key>
@@ -24,7 +26,7 @@ partitionKeyPath = PartitionKey(path="/categoryId")
 
 # <create_container>
 container = database.create_container_if_not_exists(
-    id="products", partition_key=partitionKeyPath, offer_throughput=400
+    id=container_name, partition_key=partitionKeyPath, offer_throughput=400
 )
 # </create_container>
 

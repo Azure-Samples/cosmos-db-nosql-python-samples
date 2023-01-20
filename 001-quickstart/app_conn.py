@@ -1,20 +1,19 @@
 # <imports>
 import os
 import json
-from azure.cosmos import CosmosClient, PartitionKey
-from azure.identity import DefaultAzureCredential
+from azure.cosmos import CosmosClient
 
 # </imports>
 
-# <environment_variables_and_credential>
+# <environment_variables>
 endpoint = os.environ["COSMOS_ENDPOINT"]
+key = os.environ["COSMOS_KEY"]
 database_name = os.environ["COSMOS_DATABASE"]
 container_name = os.environ["COSMOS_CONTAINER"]
-credential = DefaultAzureCredential()
-# </environment_variables_and_credential>
+# </environment_variables>
 
 # <create_client>
-client = CosmosClient(url=endpoint, credential=credential)
+client = CosmosClient(url=endpoint, credential=key)
 # </create_client>
 
 # <get_database>
