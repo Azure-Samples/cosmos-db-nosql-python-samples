@@ -1,6 +1,4 @@
-# Quickstart 001 samples
-
-There are two sample apps in this directory:
+There are two async sample apps in this directory:
 
 * *app.py* expects environment variables: COSMOS_ENDPOINT, COSMOS_KEY. DATABASE_NAME and CONTAINER_NAME are constants defined in the code. If the database and collection don't exist, they are created.
 
