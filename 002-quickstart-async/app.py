@@ -63,7 +63,6 @@ async def manage_cosmos():
         output = json.dumps(items, indent=True)
         print("Result list\t", output)
 
-
 # </async_code>
 
 # (run_async_function)
