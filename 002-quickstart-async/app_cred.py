@@ -8,9 +8,9 @@ from azure.identity.aio import DefaultAzureCredential
 
 # </imports>
 
-# <environment_variables_and_credential>
+# <environment_variables>
 ENDPOINT = os.environ["COSMOS_ENDPOINT"]
-# </environment_variables_and_credential>
+# </environment_variables>
 
 # <constants>
 DATABASE_NAME = "cosmicworks"

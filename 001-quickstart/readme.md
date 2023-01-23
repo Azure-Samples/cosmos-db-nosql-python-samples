@@ -1,4 +1,4 @@
-# Quickstart 001 samples
+# 001-quickstart samples
 
 There are two sample apps in this directory:
 
