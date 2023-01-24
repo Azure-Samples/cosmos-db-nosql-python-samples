@@ -8,4 +8,4 @@ There are two async sample apps in this directory:
 
   * Authentication is passwordless, that is, with `DefaultAzureCredential`. Passwordless authentication requires the Azure CLI and that you are logged in with your account, e.g., `az login`. This is the recommended approach.
 
-Many of the samples in this directory supply the code snippets for documentation, Keep that in mind when making changes.
+Samples in this directory supply the code snippets for documentation. Keep that in mind when making changes.
