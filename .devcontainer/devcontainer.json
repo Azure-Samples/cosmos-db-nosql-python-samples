@@ -1,5 +1,5 @@
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.7",
+    "image": "mcr.microsoft.com/vscode/devcontainers/universal:2-linux",
     "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
