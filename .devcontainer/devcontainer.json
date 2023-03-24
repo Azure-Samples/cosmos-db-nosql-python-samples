@@ -1,8 +1,11 @@
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/universal:2-linux",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
+        "ms-python.pylint",
         "ms-azuretools.vscode-cosmosdb",
         "ms-vscode.azurecli"
     ],
