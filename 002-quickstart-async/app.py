@@ -21,8 +21,10 @@ CONTAINER_NAME = "products"
 # <async_code>
 
 
+# <define_async_function>
 async def manage_cosmos():
     async with CosmosClient(url=ENDPOINT, credential=KEY) as client:
+        # </define_async_function>
         database = await client.create_database_if_not_exists(id=DATABASE_NAME)
         print("Database\t", database.id)
 
@@ -64,6 +66,6 @@ async def manage_cosmos():
 
 # </async_code>
 
-# (run_async_function)
+# <run_async_function>
 asyncio.run(manage_cosmos())
-# (/run_async_function)
+# </run_async_function>
