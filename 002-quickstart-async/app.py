@@ -22,9 +22,7 @@ CONTAINER_NAME = "products"
 
 
 async def manage_cosmos():
-
     async with CosmosClient(url=ENDPOINT, credential=KEY) as client:
-
         database = await client.create_database_if_not_exists(id=DATABASE_NAME)
         print("Database\t", database.id)
 
