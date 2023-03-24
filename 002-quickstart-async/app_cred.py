@@ -21,11 +21,8 @@ CONTAINER_NAME = "products"
 
 
 async def manage_cosmos():
-
     async with DefaultAzureCredential() as credential:
-
         async with CosmosClient(url=ENDPOINT, credential=credential) as client:
-
             database = client.get_database_client(DATABASE_NAME)
             print("Database\t", database.id)
 
