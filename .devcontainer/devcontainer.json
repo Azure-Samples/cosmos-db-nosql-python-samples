@@ -8,8 +8,11 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-dotnettools.csharp",
-                "ms-azuretools.vscode-cosmosdb"
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.pylint",
+                "ms-azuretools.vscode-cosmosdb",
+                "ms-vscode.azurecli"
             ]
         },
         "codespaces": {
