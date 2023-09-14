@@ -1,11 +1,7 @@
 name: Validate Python projects
-on:
+on:  
   workflow_dispatch:
   pull_request:
-    paths:
-      - '**.py'
-    branches:
-      - main
 jobs:
   index:
     name: Generate matrix of project directories
