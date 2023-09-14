@@ -44,7 +44,9 @@ jobs:
         run: black --check --verbose --line-length 79 *.py
   summarize:
     name: Summarize all validation jobs
-    needs: validate
+    needs: 
+      - index
+      - validate
     runs-on: ubuntu-latest
     if: ${{ always() }}
     steps:
