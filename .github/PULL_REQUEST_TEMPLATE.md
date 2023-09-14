@@ -3,9 +3,11 @@
 <!-- Verify that you have linted and formatted your Python code correctly -->
 
 ```bash
-pip install flake8
-flake8 --verbose <folder-name>/app.py
+pip install flake8 black
+```
 
-pip install black
-black --verbose <folder-name>/app.py
+```bash
+flake8 --verbose *.py
+
+black --verbose --line-length 79 *.py
 ```
