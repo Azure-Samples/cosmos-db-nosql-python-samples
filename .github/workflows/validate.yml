@@ -16,10 +16,10 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v4
     - name: List directories
-      run: find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --raw-input --compact-output --sort-keys '[inputs|select(length > 0)]'
+      run: find -name '*.py' -type 'f' -printf '%h\n' | uniq
     - name: Set output
       id: set_output
-      run: echo "matches=$(find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --raw-input --compact-output --sort-keys '[., input?]')" >> $GITHUB_OUTPUT
+      run: echo "matches=$(find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --null-input --raw-input --compact-output --sort-keys '[inputs|select(length > 0)]')" >> $GITHUB_OUTPUT
   validate:
     name: Validate Python project
     needs: index
