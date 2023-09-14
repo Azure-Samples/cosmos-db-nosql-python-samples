@@ -42,7 +42,7 @@ jobs:
       - name: Check format with black
         run: black --check --verbose --line-length 79 *.py
   summarize:
-    name: Summarize all validation jobs
+    name: All code validated
     needs: 
       - index
       - validate
