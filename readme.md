@@ -64,6 +64,14 @@ pip install black
 black --verbose 001-quickstart/app.py
 ```
 
+### Troubleshooting
+
+If you use a self-signed certificate to connect your Cosmos DB instance (Cosmos-emulator, Docker image, proxy, ...), you can define your own certificate in the `REQUESTS_CA_BUNDLE` environment variable :
+
+```bash
+export REQUESTS_CA_BUNDLE='/etc/ssl/certs/emulatorcert.pem'
+```
+
 ## Samples
 
 This project contains multiple samples used in [Azure Cosmos DB for NoSQL](https://learn.microsoft.com/azure/cosmos-db/nosql/) documentation.
