@@ -16,7 +16,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v4
     - name: List directories
-      run: find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --raw-input --compact-output --sort-keys '[., input?]'
+      run: find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --raw-input --compact-output --sort-keys '[inputs|select(length > 0)]'
     - name: Set output
       id: set_output
       run: echo "matches=$(find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --raw-input --compact-output --sort-keys '[., input?]')" >> $GITHUB_OUTPUT
