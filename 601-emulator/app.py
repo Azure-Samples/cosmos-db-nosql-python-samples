@@ -28,7 +28,7 @@ container = database.create_container_if_not_exists(
 # </resources>
 
 # <upsert>
-item = {"id": "68719518370", "name": "Kiama classic surfboard"}
+item = {"id": "68719518371", "name": "Kiama classic surfboard"}
 
 container.upsert_item(item)
 # </upsert>
