@@ -1,6 +1,5 @@
 name: Validate Python projects
 on:
-  push:
   pull_request:
     paths:
       - '**.py'
