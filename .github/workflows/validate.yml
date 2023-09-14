@@ -1,5 +1,6 @@
 name: Validate Python projects
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - '**.py'
