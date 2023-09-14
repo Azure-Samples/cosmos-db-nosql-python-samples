@@ -1,5 +1,7 @@
 # Azure Cosmos DB for NoSQL client library samples for Python
 
+[![Validate Python projects](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/actions/workflows/validate.yml/badge.svg)](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/actions/workflows/validate.yml)
+
 ## Getting started
 
 This repo has a [devcontainer](https://containers.dev) environment making it easy to get started.
