@@ -1,30 +1,40 @@
 name: Validate Python projects
 on:
+  push:
   pull_request:
     paths:
       - '**.py'
     branches:
       - main
 jobs:
+  index:
+    name: Generate matrix of project directories
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.set_output.outputs.matches }}
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v4
+    - name: List directories
+      run: find -name '*.py' -type 'f' -printf '%h\n' | uniq
+    - name: Set output
+      id: set_output
+      run: echo "matches=$(find -name '*.py' -type 'f' -printf '%h\n' | uniq | jq --null-input --raw-input --compact-output --sort-keys '[inputs|select(length > 0)]')" >> $GITHUB_OUTPUT
   validate:
     name: Validate Python project
+    needs: index
     runs-on: ubuntu-latest
     container: python:3.7
     strategy:
       matrix:
-        project-directory:
-          - ./001-quickstart
-          - ./002-quickstart-async
-          - ./003-how-to
-          - ./004-create-db
-          - ./005-create-container
+        project-directory: ${{ fromJson(needs.index.outputs.projects) }}
     defaults:
       run:
         working-directory: ${{ matrix.project-directory }}
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Check Python version
+        uses: actions/checkout@v4
+      - name: Output Python version
         run: python --version
       - name: Install packages
         run: pip install black flake8
@@ -32,3 +42,19 @@ jobs:
         run: flake8 --count --verbose *.py
       - name: Check format with black
         run: black --check --verbose --line-length 79 *.py
+  summarize:
+    name: Summarize all validation jobs
+    needs: 
+      - index
+      - validate
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - name: Evaluate status of jobs
+        if: >-
+          ${{
+               contains(needs.*.result, 'failure')
+            || contains(needs.*.result, 'cancelled')
+            || contains(needs.*.result, 'skipped')
+          }}
+        run: exit 1
